@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="output.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="alpine.js" defer></script>
+</head>
+<body class="bg-orange-50 flex flex-col h-screen font-outfit">
+    <header class="px-2 pt-2 grid gap-y-4">
+        <div class="border-2 py-2 rounded-xl bg-linear-to-r from-orange-200 to-orange-400 flex items-center justify-center gap-x-4">
+            <p class="text-xl">Admission is Open, Grab your seat now <i class="fa fa-arrow-right" aria-hidden="true"></i></p>       
+        </div>
+        <div class="flex w-full items-center">
+            <a href="index.html" class="flex items-center bg-orange-400 py-4 px-2 rounded-l-xl border-l-2 border-y-2">
+                <img src="images/logo.png" alt="" class="h-8">
+                Little Learners
+            </a>
+            <div class="flex-grow border-y-2 h-full"></div>
+            <nav class="flex h-full" x-data="{
+                items:[
+                    {name: 'Home', href: 'index.html'}
+                    {name: 'About us', href: 'about.html'}
+                    {name: 'Academics', href: 'academics.html'}
+                    {name: 'Admissions', href: ''}
+                    {name: 'Student Life', href: ''}
+                    {name: 'Contact', href: ''}
+               ]
+            }">
+
+            <template x-for="(item,index) in items">
+              <span x-text="index"></span>
+       
+                <a 
+                :href="item.href"
+                x-text="item.name"
+                :class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200"
+                :class="index == 5 ? 'rounded-r-xl border-r-2 bg-orange-400' : item.href == window.location.pathname.split('/')[window.location.pathname.split('/').length-1] ? 'bg-orange-200' : '' "
+                ></a>
+            </template> 
+                
+ 
+                <!-- <a href="index.html" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Home</a>
+                <a href="about.html" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">About Us</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Admissions</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Student Life</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-r-2 border-y-2 h-full rounded-r-xl bg-orange-400">Contact</a> -->
+            </nav>
+        </div>
+    </header>
+  <main class="flex-grow container mx-auto py-16 grid gap-y-40">
+
+    
+</main>
+<footer class="py-10">
+    <div class="container mx-auto border-2 rounded-2xl bg-gray-50 px-20 py-20 shadow-[6px_6px_black]">
+      
+      <div class="flex gap-12">
+        
+        <div class="flex-2 grid gap-y-6">
+          <a href="#" class="flex items-center gap-x-3 font-bold text-lg">
+            <img src="images/logo.png" alt="Little Learners" class="h-8">
+            Little Learners
+          </a>
+
+          <p class="pr-30">
+            We believe in the power of play to foster creativity,
+            problem-solving skills, and imagination.
+          </p>
+
+          <ul class="grid gap-y-4 font-medium ">
+            <li class="flex items-center gap-x-3">
+              <div class="h-10 w-10 border-2 rounded-lg flex items-center justify-center bg-gray-50 rounded">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              <span>hello@littlelearners.com</span>
+            </li>
+            <li class="flex items-center gap-x-3">
+              <div class="h-10 w-10 border-2 rounded-lg flex items-center justify-center bg-gray-50 rounded">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <span>+91 91813 23 2309</span>
+            </li>
+            <li class="flex items-center gap-x-3">
+              <div class="h-10 w-10 border-2 rounded-lg flex items-center justify-center bg-gray-50  rounded">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <span>Somewhere in the World</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-1 gap-x-10 px-20 ">   
+          
+          <div class="flex-1  px-15 font-medium">
+            <h5 class="font-bold mb-4 ">Home</h5>
+            <ul class="grid gap-y-4 text-sm">  
+              <li><a href="#" >Features</a></li>
+              <li><a href="#" >Our Testimonials</a></li>
+              <li><a href="#" >FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="flex-1  font-medium">
+            <h5 class="font-bold mb-4">About Us</h5>
+            <ul class="grid gap-y-4 text-sm">
+              <li><a href="#" >Our Mission</a></li>
+              <li><a href="#">Our Vision</a></li>
+              <li><a href="#" >Awards and Recognitions</a></li>
+              <li><a href="#" >History</a></li>
+              <li><a href="#" >Teachers</a></li>
+            </ul>
+          </div>
+
+          <div class="flex-1  px-25 font-medium">
+            <h5 class="font-bold mb-4">Academics</h5>
+            <ul class="grid gap-y-4 text-sm">
+              <li><a href="#">Special Features</a></li>
+              <li><a href="#" >Gallery</a></li>
+            </ul>
+          </div>
+
+          <div class="flex-1 font-medium">
+            <h5 class="font-bold mb-4">Contact Us</h5>
+            <ul class="grid gap-y-4 text-sm">
+              <li><a href="#" >Information</a></li>
+              <li><a href="#">Map & Direction</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-gray-400 my-8    ">
+
+
+
+      <div class="flex justify-between items-center text-sm font-medium">
+        <div class="flex gap-x-4">
+          <a href="#">Terms of Service</a>
+          <span class="text-gray-400 ">|</span>
+          <a href="#" >Privacy Policy</a>
+          <span class="text-gray-400">|</span>
+          <a href="#" >Cookie Policy</a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 ">
+          <a href="#" class="h-10 w-10 border-2 flex items-center justify-center bg-orange-200 hover:bg-orange-300 rounded">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="h-10 w-10 border-2 rounded-lg flex items-center justify-center bg-orange-200 hover:bg-orange-300 rounded">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="h-10 w-10 border-2 rounded-lg flex items-center justify-center bg-orange-200 hover:bg-orange-300 rounded ">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <hr class="border-gray-400 my-8 h-8">
+
+      <p class="text-center text-sm">
+        Copyright © 2023 Little Learners Academy. All rights reserved.
+      </p>
+    </div>
+</footer>
+
+</body>
+</html>

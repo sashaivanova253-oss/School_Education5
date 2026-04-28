@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <link href="output.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="alpine.js" defer></script>
 </head>
 <body class="bg-orange-50 flex flex-col h-screen font-outfit">
     <header class="px-2 pt-2 grid gap-y-4">
@@ -13,17 +13,46 @@
             <p class="text-xl">Admission is Open, Grab your seat now <i class="fa fa-arrow-right" aria-hidden="true"></i></p>       
         </div>
         <div class="flex w-full items-center">
-            <a href="" class="flex items-center bg-orange-400 py-4 px-2 rounded-l-xl border-l-2 border-y-2">
+            <a href="index.html" class="flex items-center bg-orange-400 py-4 px-2 rounded-l-xl border-l-2 border-y-2">
                 <img src="images/logo.png" alt="" class="h-8">
                 Little Learners
             </a>
             <div class="flex-grow border-y-2 h-full"></div>
-            <nav class="flex h-full">
-                <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Home</a>
-                <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">About Us</a>
+          <nav class="flex h-full" x-data="{
+                items:[
+                    {name: 'Home', href: 'index.html'}
+                    {name: 'About us', href: 'about.html'}
+                    {name: 'Academics', href: 'academics'}
+                    {name: 'Admissions', href: ''}
+                    {name: 'Student Life', href: ''}
+                    {name: 'Contact', href: ''}
+               ]
+            }">
+
+            <template x-for="(item,index) in items">
+              <span x-text="index"></span>
+       
+                <a 
+                :href="item.href"
+                x-text="item.name"
+                :class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200"
+                :class="index == 5 ? 'rounded-r-xl border-r-2 bg-orange-400' : item.href == window.location.pathname.split('/')[window.location.pathname.split('/').length-1] ? 'bg-orange-200' : '' "
+                ></a>
+            </template> 
+                
+ 
+                <!-- <a href="index.html" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Home</a>
+                <a href="about.html" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">About Us</a>
                 <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Admissions</a>
                 <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Student Life</a>
-                <a href="" class="flex items-center px-4 border-s-2 border-r-2 border-y-2 h-full rounded-r-xl bg-orange-400">Contact</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-r-2 border-y-2 h-full rounded-r-xl bg-orange-400">Contact</a> -->
+            
+
+                <!-- <a href="index.html" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Home</a>
+                <a href="about.html" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">About Us</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Admissions</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-y-2 h-full hover:bg-orange-200">Student Life</a>
+                <a href="" class="flex items-center px-4 border-s-2 border-r-2 border-y-2 h-full rounded-r-xl bg-orange-400">Contact</a> -->
             </nav>
         </div>
     </header>
